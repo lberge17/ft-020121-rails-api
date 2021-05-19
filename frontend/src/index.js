@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function fetchStores(){
-    const storesContainer = document.getElementById("stores-container")
+    // const storesContainer = document.getElementById("stores-container")
 
     fetch("http://localhost:3000/api/v1/stores")
     .then(r => r.json())
