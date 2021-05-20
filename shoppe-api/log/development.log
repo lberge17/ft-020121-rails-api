@@ -3816,3 +3816,1105 @@ Processing by Api::V1::StoresController#index as */*
 Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.9ms | Allocations: 5077)
 
 
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:09:56 -0500
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StoresController#index as HTML
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 14]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 144ms (Views: 85.5ms | ActiveRecord: 3.0ms | Allocations: 18719)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:10:00 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 14]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 1.0ms | Allocations: 5097)
+
+
+Started DELETE "/api/v1/stores/14" for ::1 at 2021-05-20 10:10:06 -0500
+Processing by Api::V1::StoresController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mStore Destroy (0.9ms)[0m  [1m[31mDELETE FROM "stores" WHERE "stores"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 2.4ms | Allocations: 2085)
+
+
+Started POST "/api/v1/stores" for ::1 at 2021-05-20 10:10:10 -0500
+Processing by Api::V1::StoresController#create as JSON
+  Parameters: {"name"=>"Ditto", "store"=>{"name"=>"Ditto"}}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+  [1m[36mStore Create (1.1ms)[0m  [1m[32mINSERT INTO "stores" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ditto"], ["created_at", "2021-05-20 15:10:10.100337"], ["updated_at", "2021-05-20 15:10:10.100337"]]
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+Completed 201 Created in 13ms (Views: 1.4ms | ActiveRecord: 3.4ms | Allocations: 2042)
+
+
+Started PATCH "/api/v1/stores/18" for ::1 at 2021-05-20 10:10:19 -0500
+Processing by Api::V1::StoresController#update as JSON
+  Parameters: {"name"=>"Dittos", "id"=>"18", "store"=>{"name"=>"Dittos"}}
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mStore Update (0.5ms)[0m  [1m[33mUPDATE "stores" SET "name" = ?, "updated_at" = ? WHERE "stores"."id" = ?[0m  [["name", "Dittos"], ["updated_at", "2021-05-20 15:10:19.527993"], ["id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 2321)
+
+
+Started PATCH "/api/v1/stores/18" for ::1 at 2021-05-20 10:10:20 -0500
+Processing by Api::V1::StoresController#update as JSON
+  Parameters: {"name"=>"Dittos", "id"=>"18", "store"=>{"name"=>"Dittos"}}
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 759)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:10:24 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 1.0ms | Allocations: 5081)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:12:44 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 1.1ms | Allocations: 5078)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:13:20 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 1.0ms | Allocations: 5078)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:15:52 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 1.3ms | Allocations: 5076)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:18:15 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 1.2ms | Allocations: 5080)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:21:12 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 1.1ms | Allocations: 5076)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:21:19 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.8ms | Allocations: 5076)
+
+
+Started POST "/api/v1/stores" for ::1 at 2021-05-20 10:21:22 -0500
+Processing by Api::V1::StoresController#create as JSON
+  Parameters: {"name"=>"Ditto", "store"=>{"name"=>"Ditto"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+  [1m[36mStore Create (0.5ms)[0m  [1m[32mINSERT INTO "stores" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ditto"], ["created_at", "2021-05-20 15:21:22.493494"], ["updated_at", "2021-05-20 15:21:22.493494"]]
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 1782)
+
+
+Started PATCH "/api/v1/stores/19" for ::1 at 2021-05-20 10:21:32 -0500
+Processing by Api::V1::StoresController#update as JSON
+  Parameters: {"name"=>"Ditto!", "id"=>"19", "store"=>{"name"=>"Ditto!"}}
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mStore Update (0.6ms)[0m  [1m[33mUPDATE "stores" SET "name" = ?, "updated_at" = ? WHERE "stores"."id" = ?[0m  [["name", "Ditto!"], ["updated_at", "2021-05-20 15:21:32.207697"], ["id", 19]]
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 2246)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:21:33 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 19]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 1.1ms | Allocations: 5832)
+
+
+Started DELETE "/api/v1/stores/19" for ::1 at 2021-05-20 10:21:35 -0500
+Processing by Api::V1::StoresController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mStore Destroy (0.6ms)[0m  [1m[31mDELETE FROM "stores" WHERE "stores"."id" = ?[0m  [["id", 19]]
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 1888)
+
+
+Started DELETE "/api/v1/stores/18" for ::1 at 2021-05-20 10:21:37 -0500
+Processing by Api::V1::StoresController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mStore Destroy (0.6ms)[0m  [1m[31mDELETE FROM "stores" WHERE "stores"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.8ms | Allocations: 1888)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:23:12 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 2.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:24:38 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:25:00 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 1.2ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:25:01 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started DELETE "/api/v1/stores/13" for ::1 at 2021-05-20 10:25:04 -0500
+Processing by Api::V1::StoresController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mStore Destroy (0.7ms)[0m  [1m[31mDELETE FROM "stores" WHERE "stores"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:58:in `destroy'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1889)
+
+
+Started POST "/api/v1/stores" for ::1 at 2021-05-20 10:25:09 -0500
+Processing by Api::V1::StoresController#create as JSON
+  Parameters: {"name"=>"Ditto", "store"=>{"name"=>"Ditto"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+  [1m[36mStore Create (0.6ms)[0m  [1m[32mINSERT INTO "stores" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ditto"], ["created_at", "2021-05-20 15:25:09.064130"], ["updated_at", "2021-05-20 15:25:09.064130"]]
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:28:in `create'
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1779)
+
+
+Started PATCH "/api/v1/stores/20" for ::1 at 2021-05-20 10:25:12 -0500
+Processing by Api::V1::StoresController#update as JSON
+  Parameters: {"name"=>"Ditto!", "id"=>"20", "store"=>{"name"=>"Ditto!"}}
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mStore Update (0.6ms)[0m  [1m[33mUPDATE "stores" SET "name" = ?, "updated_at" = ? WHERE "stores"."id" = ?[0m  [["name", "Ditto!"], ["updated_at", "2021-05-20 15:25:12.203642"], ["id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2244)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:25:13 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 1.3ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:26:14 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:27:08 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started PATCH "/api/v1/stores/20" for ::1 at 2021-05-20 10:27:12 -0500
+Processing by Api::V1::StoresController#update as JSON
+  Parameters: {"name"=>"Ditto", "id"=>"20", "store"=>{"name"=>"Ditto"}}
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores" WHERE "stores"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:68:in `set_store'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mStore Update (0.4ms)[0m  [1m[33mUPDATE "stores" SET "name" = ?, "updated_at" = ? WHERE "stores"."id" = ?[0m  [["name", "Ditto"], ["updated_at", "2021-05-20 15:27:12.397989"], ["id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:43:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2245)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:27:14 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:27:15 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 1.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:28:28 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.9ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 1.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:29:42 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:31:36 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:32:52 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 55ms (Views: 53.8ms | ActiveRecord: 1.0ms | Allocations: 4321)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:35:25 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.6ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:37:01 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:38:51 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:39:46 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:40:14 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:40:16 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:41:37 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 1.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:41:40 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:41:59 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:42:00 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:42:25 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 1.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:42:26 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.6ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:42:43 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.6ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:43:05 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.8ms | Allocations: 4321)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:43:22 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.8ms | Allocations: 4321)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:43:38 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:43:40 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:45:44 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 1.4ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:45:51 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:46:29 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 1.5ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:47:21 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:47:56 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:48:25 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 1.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:48:28 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 1.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:53:38 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 1.1ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:53:52 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:54:05 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 1.0ms | Allocations: 4321)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:55:33 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 1.3ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:55:38 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 1.0ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:55:40 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 10:56:34 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:00:58 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 1.1ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:01:01 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 1.1ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:01:45 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:01:47 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.9ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:01:59 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:02:22 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/api/v1/stores" for ::1 at 2021-05-20 11:04:57 -0500
+Processing by Api::V1::StoresController#index as */*
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 1]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 2]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 3]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."store_id" = ?[0m  [["store_id", 20]]
+  ↳ app/controllers/api/v1/stores_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.8ms | Allocations: 4320)
+
+
+Started GET "/" for ::1 at 2021-05-20 11:13:28 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/laura/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/laura/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 18.5ms | Allocations: 315)
+Completed 200 OK in 106ms (Views: 38.9ms | Allocations: 2443)
+
+

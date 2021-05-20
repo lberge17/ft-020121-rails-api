@@ -32,7 +32,7 @@ class ShoppeAdapter {
     }
 
     editStore(editMode, nameInput){
-        fetch(`http://localhost:3000/api/v1/stores/${editMode.dataset.id}`, {
+        fetch(`${this.baseStoreURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -45,10 +45,10 @@ class ShoppeAdapter {
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204) {
-                // editMode.children[0].innerText = data.store.name
-                // editMode = false
-                // document.getElementById('store-submit').value = "Create Store"
-                // nameInput.value = ""  
+                editMode.children[0].innerText = data.store.name
+                editMode = false
+                document.getElementById('store-submit').value = "Create Store"
+                nameInput.value = ""  
             } else {
                 alert(data.errors)
             }
@@ -57,7 +57,7 @@ class ShoppeAdapter {
     }
 
     createStore(nameInput){
-        fetch("http://localhost:3000/api/v1/stores", {
+        fetch(this.baseStoreURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -82,7 +82,7 @@ class ShoppeAdapter {
     }
 
     deleteStore(li){
-        fetch(`http://localhost:3000/api/v1/stores/${li.dataset.id}`, {
+        fetch(`${this.baseStoreURL}/${li.dataset.id}`, {
             method: "DELETE"
         })
         .then(resp => {
