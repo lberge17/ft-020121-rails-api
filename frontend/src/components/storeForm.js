@@ -7,10 +7,8 @@ class StoreForm {
     addCreateForm(){
         const formContainer = document.getElementById("form-container");
         const form = document.createElement('form');
-        form.innerHTML = `<input id="name-input" placeholder='name' type='text'/><br><input id="store-submit" value='Create Store' type='submit'/>`
-        // const input = document.createElement('input');
-        // input.setAttribute('type', 'text')
-        // input.type = "text"
+        form.innerHTML = `<input id="name-input" placeholder='name' type='text'/><br>
+        <input id="store-submit" value='Create Store' type='submit'/>`
         formContainer.append(form)
     
         form.addEventListener("submit", this.handleSubmit)
@@ -55,32 +53,23 @@ class StoreForm {
                 console.log("Displaying Products", li.dataset.id)
                 const s = Store.all.find(s => s.id == li.dataset.id)
                 s.renderProducts()
+
                 break;
 
             case "cart":
-                console.log("Adding Item to Cart", e.target.parentElement.dataset.id)
-                
+                const cartContainer = document.getElementById("cart-container")
+                const id = e.target.parentElement.dataset.id
+
+                console.log("Adding Item to Cart", id)
+                cart.push(parseInt(id))
+                localStorage.setItem("cart", JSON.stringify(cart))
+                alert(`Successfully added ${e.target.parentElement.children[0].innerText} to your cart`)
+                cartContainer.innerHTML += `<p>${id}</p>`
+
                 break;
 
             default:
                 break;
-        }
-        // if (action === "delete"){
-        //     // delete this store from backend
-            
-        // } else if (action === "edit") {
-            // // editmode -> li
-            // editMode = li
-            // // button -> updateStore
-            // document.getElementById('store-submit').value = "Update"
-            // // populate input with name of store
-            // document.getElementById('name-input').value = li.children[0].innerText
-            // // submit edit button, update store (in different function)
-        // } else if (action === "display") {
-        //     if (currentProducts) currentProducts.remove()
-        //     console.log("Displaying Products", li.dataset.id)
-        //     const s = Store.all.find(s => s.id == li.dataset.id)
-        //     s.renderProducts()
-        // } else if 
+        } 
     }
 }

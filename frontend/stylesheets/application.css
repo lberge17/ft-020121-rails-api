@@ -1,3 +1,7 @@
 li {
     margin: 10px;
 }
+
+.hidden {
+    display: none;
+}

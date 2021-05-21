@@ -15,7 +15,7 @@ class Product {
 
     render(){
         return(
-            `<li data-id=${this.id}>${this.name} - ${this.price} <button data-action="cart">Add to Cart</button></li>`
+            `<li data-id=${this.id}><span>${this.name}</span> - <span>${this.price}</span> <button data-action="cart">Add to Cart</button></li>`
         )
     }
 }

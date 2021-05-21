@@ -9,8 +9,16 @@
 </head>
 <body>
     <h1>Welcome to the Shoppe</h1>
-    <div id="form-container"></div>
-    <ul id="stores-container"></ul>
+    <button id="switch-page">&#128722;</button>
+    <br><br><br>
+    <div id="home-page">
+        <div id="form-container"></div>
+        <ul id="stores-container"></ul>
+    </div>
+    <div id="cart-page" class="hidden">
+        <div id="cart-container"></div>
+        <button id="checkout">Checkout</button>
+    </div>
     <script type="text/javascript" src="src/components/product.js"></script>
     <script type="text/javascript" src="src/components/store.js"></script>
     <script type="text/javascript" src="src/components/shoppeAdapter.js"></script>
